@@ -1,0 +1,104 @@
+.index-list {
+  width: 630px;
+  padding-right: 55px;
+  margin-bottom: 30px;
+
+  border-right: 2px solid colors("border");
+
+  .index-blog {
+    @include displayFlex;
+
+    margin-bottom: 30px;
+
+    .date {
+      box-sizing: border-box;
+      width: 50px;
+      height: 50px;
+      padding-top: 5px;
+      margin-right: 15px;
+
+      text-align: center;
+      color: colors("main-font");
+      background-color: colors("background");
+      border-radius: 50%;
+
+      .day,
+      .month {
+        line-height: 1;
+        font-family: 'lobster_tworegular', 'Microsoft YaHei';
+      }
+      .day {
+        font-size: 26px;
+      }
+      .month {
+        font-size: 12px;
+      }
+    }
+    .detail {
+      width: 550px;
+
+      .title {
+        margin-bottom: 15px;
+
+        font-size: 22px;
+        line-height: 50px;
+        color: colors("main-font");
+
+        span {
+          display: inline-block;
+          margin-left: 15px;
+
+          font-size: 14px;
+
+          a {
+            color: colors("blue");
+          }
+        }
+      }
+
+      .content {
+        margin-bottom: 15px;
+
+        p {
+          font-size: 14px;
+          line-height: 1.8;
+          text-indent: 28px;
+          color: colors("sub-font");
+        }
+
+        img {
+          display: none;
+          max-width: 60%;
+          margin: 10px auto;
+        }
+      }
+    }
+  }
+}
+
+.index-sidebar {
+  box-sizing: border-box;
+  width: 313px;
+  padding: 0 20px;
+
+  .avatar {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+
+    border-radius: 50%;
+  }
+  .name {
+    margin: 15px 0;
+
+    font-size: 22px;
+    text-align: center;
+    color: colors("main-font");
+  }
+  .intro {
+    font-size: 14px;
+    line-height: 1.8;
+    color: colors("main-font");
+  }
+}

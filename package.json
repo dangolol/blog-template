@@ -1,0 +1,22 @@
+{
+  "name": "dblog-template",
+  "version": "1.0.0",
+  "description": "My blog's static page template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "page"
+  ],
+  "author": "Dango",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "imagemin-pngquant": "^5.0.0"
+  }
+}

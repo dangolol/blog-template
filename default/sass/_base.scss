@@ -1,0 +1,388 @@
+.wangEditor-menu-container .menu-group {
+  &:last-child {
+    border-right: none;
+  }
+}
+
+// 基本公共样式
+.bui-shadow {
+  @extend %shadow;
+}
+.bui-warning {
+  margin: 10px 0;
+
+  font-size: 14px;
+  color: colors("red");
+  line-height: 1.5;
+}
+
+// 公共按钮样式
+$btnFontSize: $globalNormalFontSize;
+$btnCornerRadius: $btnFontSize * 3;
+
+.bui-btn {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: 100%;
+
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+
+  text-align: center;
+  font-size: $btnFontSize;
+  cursor: pointer;
+}
+.bui-btn-inline {
+  display: inline-block;
+  width: auto;
+  padding: $btnFontSize 10px;
+}
+.bui-btn-corner {
+  border-radius: $btnCornerRadius;
+}
+
+.bui-btn-red,
+.bui-btn-red:visited {
+  color: #fff;
+  background-color: colors("red");
+  border-color: colors("red");
+}
+
+.bui-btn-disable,
+.bui-btn-disable:visited {
+  color: #fff;
+  background-color: colors("background");
+  border-color: colors("background");
+
+  cursor: default;
+}
+
+//flex
+.bui-flex {
+  @include displayFlex;
+}
+.bui-cell-auto {
+  @include flex(1);
+}
+.bui-cell-wrap {
+  margin-bottom: $globalSmallFontSize;
+  padding: 0 $globalSmallFontSize;
+
+  border-top: 1px solid colors("border");
+  border-bottom: 1px solid colors("border");
+  background-color: #fff;
+}
+.bui-cell-item {
+  display: flex;
+  align-items: center;
+  height: 32px;
+
+  font-size: $globalNormalFontSize !important;
+  border-bottom: 1px solid colors("border");
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.bui-cell {
+  @include displayFlex;
+  @include flexAlignItem(center);
+  @include flex;
+  @extend %overflow-clip;
+
+  font-size: inherit;
+  color: colors("main-font");
+}
+.bui-cell-right {
+  font-size: inherit;
+  color: colors("sub-font");
+}
+.bui-cell-icon {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+.bui-cell-r {
+  text-align: right;
+  color: colors("sub-font");
+
+  &:after {
+    content: " ";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height: 8px;
+    width: 8px;
+    border-width: 1px 1px 0 0;
+    border-color: #bfbfbf;
+    border-style: solid;
+    position: relative;
+    top: -1px;
+    margin-left: 5px;
+  }
+}
+
+//输入
+.bui-input {
+  width: 100%;
+  padding-top: 25px;
+  margin-bottom: 30px;
+
+  position: relative;
+
+  input {
+    display: block;
+    width: 100%;
+    height: 30px;
+
+    font-size: 16px;
+    text-indent: 70px;
+    color: colors("main-font");
+
+    border-bottom: 2px solid colors("border");
+
+    @include transition(all, 0.2s);
+  }
+  input:focus {
+    text-indent: 0;
+    border-bottom-color: colors("red");
+
+    & + label {
+      height: 25px;
+      top: 0;
+      font-size: 12px;
+      cursor: default;
+    }
+  }
+  label {
+    display: block;
+    width: 100%;
+    height: 30px;
+
+    position: absolute;
+    top: 25px;
+    left: 0;
+
+    font-size: 16px;
+    line-height: 30px;
+    color: colors("main-font");
+
+    cursor: pointer;
+
+    @include transition(all, 0.2s);
+  }
+}
+
+//dialog样式
+.bui-dialog-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 170721;
+}
+.bui-shade {
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 170721;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.bui-dialog-close {
+  $close-width: 20px;
+
+  display: block;
+  width: $close-width;
+  height: $close-width;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 170721;
+
+  font-family: "iconfont";
+  font-size: 14px;
+  line-height: $close-width;
+  text-align: center;
+  color: colors("background-light");
+
+  cursor: pointer;
+
+  &:before {
+    content: "\e646";
+  }
+  &:hover {
+    color: colors("sub-font");
+  }
+}
+.bui-dialog {
+  box-sizing: border-box;
+  width: 440px;
+  min-height: 250px;
+  padding: 20px;
+  margin-left: -220px;
+
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  z-index: 170721;
+
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+//Alert样式
+.bui-alert {
+  $alert-height: 40px;
+
+  box-sizing: border-box;
+  width: 410px;
+  height: $alert-height;
+  padding: 0 15px;
+  margin: 15px auto;
+
+  font-size: 14px;
+  line-height: $alert-height;
+  border: 1px solid;
+
+  position: relative;
+
+  i {
+    $close-width: 20px;
+
+    display: block;
+    width: $close-width;
+    height: $close-width;
+    margin-top: -($close-width / 2);
+
+    position: absolute;
+    top: 50%;
+    right: 15px;
+
+    font-family: "iconfont";
+    font-size: 14px;
+    line-height: $close-width;
+    text-align: center;
+    color: colors("background-light");
+
+    cursor: pointer;
+
+    &:before {
+      content: "\e646";
+    }
+    &:hover {
+      color: colors("sub-font");
+    }
+  }
+}
+
+.bui-alert-warning {
+  color: colors("red");
+  background-color: colors("background-warning");
+  border-color: colors("border-warning");
+}
+
+
+/*Font color*/
+@each $color in map_keys($globalColor) {
+  .bui-font-#{$color} {
+    color: colors($color) !important;
+  }
+}
+
+.bui-fl {
+  float: left;
+}
+.bui-fr {
+  float: right;
+}
+
+.bui-container {
+  @extend %clearfix;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.bui-link {
+  font-size: $globalSmallFontSize;
+  text-decoration: underline;
+}
+
+.bui-gray {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.bui-corner {
+  border-radius: $globalRadius;
+  overflow: hidden;
+}
+.bui-uncorner {
+  border-radius: 0;
+}
+.bui-large {
+  font-size: $globalLargeFontSize;
+}
+.bui-base {
+  font-size: $globalTitleFontSize;
+}
+.bui-normal {
+  font-size: $globalNormalFontSize;
+}
+.bui-small {
+  font-size: $globalSmallFontSize;
+}
+.bui-bold {
+  font-weight: bold;
+}
+.bui-align-center {
+  text-align: center !important;
+}
+.bui-align-left {
+  text-align: left !important;
+}
+.bui-align-right {
+  text-align: right !important;
+}
+.bui-valign-middle {
+  vertical-align: middle;
+}
+.bui-song {
+  font-family: Simsun;
+}
+.bui-yahei {
+  font-family: 'Microsoft Yahei', 'Heiti SC', Simsun;
+}
+
+.clearfix {
+  @extend %clearfix;
+}
+
+$baseSpacing: 5px;
+$SpacingName: "pt" "pb" "pl" "pr" "mt" "mb" "ml" "mr";
+
+@each $key in $SpacingName {
+  @for $i from 1 through 4 {
+
+    $name: $i * 5;
+
+    .bui-#{$key}#{$name} {
+      padding-top: $baseSpacing * $i;
+    }
+  }
+}
+
+.bui-bg-white {
+  background-color: #fff;
+}
+
+.bui-hide {
+  display: none;
+}
+

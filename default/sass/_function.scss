@@ -1,0 +1,122 @@
+@function colors($color) {
+  @if not map-has-key($globalColor, $color){
+    @warn "在$globalColor中找不到名为 `#{$color}` 的颜色.";
+  }
+  @return map-get($globalColor, $color);
+}
+
+@mixin background-size($width: auto, $height: auto) {
+  @if $width == cover {
+    -webkit-background-size: $width;
+    background-size: $width;
+  } @else if $width == contain {
+    -webkit-background-size: $width;
+    background-size: $width;
+  } @else {
+    -webkit-background-size: $width $height;
+    background-size: $width $height;
+  }
+}
+
+@mixin shadow($shadowParam: 0 2px 5px rgba(0, 0, 0, .15)) {
+  -webkit-box-shadow: $shadowParam;
+  box-shadow: $shadowParam;
+}
+
+@mixin displayFlex() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flexAlignItem($align: center) {
+
+  @if $align == start {
+    -webkit-box-align: $align;
+       -ms-flex-align: $align;
+    -webkit-align-items: flex-start;
+            align-items: flex-start;
+  } @else if $align == end {
+    -webkit-box-align: $align;
+       -ms-flex-align: $align;
+    -webkit-align-items: flex-end;
+            align-items: flex-end;
+  } @else {
+    -webkit-box-align: $align;
+       -ms-flex-align: $align;
+    -webkit-align-items: $align;
+            align-items: $align;
+  }
+}
+
+@mixin flex($num: 1) {
+  -webkit-box-flex: $num;
+      -webkit-flex: $num;
+          -ms-flex: $num;
+              flex: $num;
+}
+
+@mixin flexDirection($direction: row) {
+  @if $direction == row {
+    -webkit-box-direction: normal;
+       -moz-box-direction: normal;
+         -ms-box-direction:normal;
+    -webkit-box-orient:horizontal;
+       -moz-box-orient:horizontal;
+        -ms-box-orient:horizontal;
+  } @else if $direction == row-reverse {
+    -webkit-box-direction: reverse;
+       -moz-box-direction: reverse;
+         -ms-box-direction:reverse;
+    -webkit-box-orient:horizontal;
+       -moz-box-orient:horizontal;
+        -ms-box-orient:horizontal;
+  } @else if $direction == column {
+    -webkit-box-direction: normal;
+       -moz-box-direction: normal;
+         -ms-box-direction:normal;
+    -webkit-box-orient:vertical;
+       -moz-box-orient:vertical;
+        -ms-box-orient:vertical;
+  } @else if $direction == column-reverse {
+    -webkit-box-direction: reverse;
+       -moz-box-direction: reverse;
+         -ms-box-direction:reverse;
+    -webkit-box-orient:vertical;
+       -moz-box-orient:vertical;
+        -ms-box-orient:vertical;
+  }
+  -webkit-flex-direction: $direction;
+          flex-direction: $direction;
+}
+
+@mixin justifyContent($item: start) {
+  @if $item == start {
+    -webkit-justify-content: flex-start;
+            justify-content: flex-start;
+    -webkit-box-pack: $item;
+       -moz-box-pack: $item;
+  } @else if $item == end {
+    -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+    -webkit-box-pack: $item;
+       -moz-box-pack: $item;
+  } @else if $item == center {
+    -webkit-justify-content: $item;
+            justify-content: $item;
+    -webkit-box-pack: $item;
+       -moz-box-pack: $item;
+  } @else {
+    -webkit-justify-content: $item;
+            justify-content: $item;
+    -webkit-box-pack: justify;
+       -moz-box-pack: justify;
+  }
+}
+
+@mixin transition($prop: all, $time: 1s) {
+  -webkit-transition: $prop $time;
+     -moz-transition: $prop $time;
+          transition: $prop $time;
+}

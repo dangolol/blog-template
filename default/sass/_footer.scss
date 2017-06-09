@@ -1,0 +1,29 @@
+footer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 15px;
+
+  .bui-container {
+    @include displayFlex;
+
+    border-top: 1px solid colors("border");
+  }
+
+  .info {
+    @include flex(1);
+  }
+  p,.contact {
+    margin: 10px 0;
+
+    font-size: $globalSmallFontSize;
+    line-height: 1.5;
+    color: colors("main-font");
+  }
+  .contact {
+    display: block;
+
+    font-size: $globalSmallFontSize;
+    line-height: 1.5;
+    color: colors("blue");
+  }
+}

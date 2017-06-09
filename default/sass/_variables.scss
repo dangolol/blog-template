@@ -1,0 +1,50 @@
+//Clear float
+%clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+%overflow-clip {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+%shadow {
+  @include shadow();
+}
+
+//全局常用颜色变量
+$globalColor : (
+  "white": #fff,
+  "blue": #3784c6,
+  "cyan": #4bc5c3,
+  "red": #e00000,
+  "red-light": #ed6c44,
+  "orange": #ffb230,
+  "main-font": #212121,
+  "sub-font": #9a9999,
+  "sidebar-font": #b3aeaa,
+  "sidebar-font-hover": #c3a279,
+  "border": #ccc,
+  "border-light": #e5e1e1,
+  "border-warning": #fff1bb,
+  "background": #bdbdbd,
+  "background-light": #e7e7e7,
+  "background-warning": #fffed0,
+  "background-sidebar": #4c4743,
+  "background-console": #f8f3f0
+);
+
+$globalRadius: 5px !default;
+$globalLargeFontSize: 18px !default;
+$globalTitleFontSize: 16px!default;
+$globalSectionTitleFontSize: 15px !default;
+$globalNormalFontSize: 14px !default;
+$globalSmallFontSize: 12px !default;

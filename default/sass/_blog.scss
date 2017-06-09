@@ -1,0 +1,154 @@
+.blog-container {
+  width: 800px;
+  margin: 0 auto;
+
+  .title {
+    margin: 15px 0 30px;
+
+    font-size: 28px;
+    line-height: 1;
+    color: colors("main-font");
+  }
+
+  .info {
+    @include displayFlex;
+    @include flexAlignItem(center);
+
+    .avatar {
+      display: block;
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+    }
+    .detail {
+      padding-left: 15px;
+
+      p {
+        font-size: 12px;
+        line-height: 1.8;
+        color: colors("main-font");
+      }
+    }
+  }
+
+  .content p {
+    margin: 25px 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: colors("main-font");
+    text-indent: 32px;
+  }
+  .content img {
+    display: block;
+    max-width: 60%;
+    margin: 40px auto;
+  }
+  .change-date {
+    margin: 50px 0;
+
+    font-size: 16px;
+    text-align: right;
+    color: colors("sub-font");
+  }
+}
+
+.blog-comment {
+  border-top: 1px solid colors("border");
+
+  .publish {
+    margin: 30px 0;
+
+    textarea {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      resize: none;
+
+      font-size: 14px;
+      line-height: 1.5;
+
+      border: 1px solid colors("border");
+      border-radius: $globalRadius;
+    }
+
+    .bui-btn {
+      width: 90px;
+    }
+  }
+
+  .more {
+    width: 280px;
+    margin: 0 auto 30px;
+  }
+}
+
+.blog-comment-list {
+  .avatar {
+    display: block;
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid colors("border");
+  }
+
+  .item {
+    @include displayFlex;
+    margin-bottom: 20px;
+  }
+
+  .reply-list {
+    padding: 15px 0 0.1px 30px;
+    margin-bottom: 20px;
+
+    border-left: 1px solid colors("border");
+  }
+  .detail {
+    @include flex(1);
+    margin-left: 15px;
+
+    .content {
+      font-size: 14px;
+      line-height: 1.8;
+      color: colors("main-font");
+    }
+
+    .info {
+      font-size: 12px;
+      color: colors("sub-font");
+
+      i,span,a {
+        line-height: 1.8;
+      }
+      span {
+        display: inline-block;
+        margin-left: 15px;
+        color: colors("red");
+      }
+    }
+
+    .reply {
+      margin-top: 5px;
+
+      input {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+
+        font-size: 14px;
+
+        border: 1px solid colors("border");
+      }
+      .bui-btn {
+        width: 60px;
+        padding: 0;
+
+        font-size: 12px;
+        line-height: 25px;
+      }
+    }
+  }
+}
