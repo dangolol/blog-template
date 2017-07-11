@@ -49,17 +49,13 @@
           margin-left: 15px;
 
           font-size: 14px;
-
-          a {
-            color: colors("blue");
-          }
         }
       }
 
       .content {
         margin-bottom: 15px;
 
-        p {
+        &,p {
           font-size: 14px;
           line-height: 1.8;
           text-indent: 28px;
@@ -80,6 +76,9 @@
   box-sizing: border-box;
   width: 313px;
   padding: 0 20px;
+}
+.index-intro {
+  margin-bottom: 30px;
 
   .avatar {
     display: block;

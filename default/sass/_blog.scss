@@ -19,6 +19,7 @@
       width: 58px;
       height: 58px;
 
+      border: 1px solid colors("border");
       border-radius: 50%;
     }
     .detail {
@@ -129,6 +130,7 @@
     }
 
     .reply {
+      display: none;
       margin-top: 5px;
 
       input {
@@ -150,5 +152,14 @@
         line-height: 25px;
       }
     }
+  }
+
+  .deleted {
+    width: 100%;
+    padding: 15px;
+
+    color: colors("sub-font");
+    background-color: colors("background-light");
+    border: 1px solid colors("border");
   }
 }

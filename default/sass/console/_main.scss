@@ -60,15 +60,19 @@
 .console-content {
   @include flex(1);
   box-sizing: border-box;
-  padding: 50px;
+  padding: 0 50px;
 
   background-color: colors("background-console");
+}
 
+.console-container {
+  margin: 15px 0;
+}
+.console-write {
   .title {
     box-sizing: border-box;
     display: block;
     width: 100%;
-    max-width: 1090px;
     margin: 0 auto;
     padding: 8px;
 

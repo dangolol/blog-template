@@ -38,7 +38,8 @@ $btnCornerRadius: $btnFontSize * 3;
 .bui-btn-inline {
   display: inline-block;
   width: auto;
-  padding: $btnFontSize 10px;
+  padding: 10px 20px;
+  margin: 0 10px;
 }
 .bui-btn-corner {
   border-radius: $btnCornerRadius;
@@ -51,11 +52,18 @@ $btnCornerRadius: $btnFontSize * 3;
   border-color: colors("red");
 }
 
-.bui-btn-disable,
-.bui-btn-disable:visited {
+.bui-btn-gray,
+.bui-btn-gray:visited {
   color: #fff;
   background-color: colors("background");
   border-color: colors("background");
+}
+
+.bui-btn-disable,
+.bui-btn-disable:visited {
+  color: colors("sidebar-font");
+  background-color: colors("background-light");
+  border-color: colors("background-light");
 
   cursor: default;
 }
@@ -126,6 +134,30 @@ $btnCornerRadius: $btnFontSize * 3;
   }
 }
 
+//表格
+.bui-table {
+  width: 100%;
+
+  th,td {
+    padding: 10px;
+
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+    vertical-align: middle;
+
+    background-color: #fff;
+    border: 1px solid colors("border-light");
+  }
+  th {
+    color: colors("sub-font");
+    background-color: colors("background-light");
+  }
+  tr:hover td {
+    background-color: colors("background-light");
+  }
+}
+
 //输入
 .bui-input {
   width: 100%;
@@ -140,7 +172,7 @@ $btnCornerRadius: $btnFontSize * 3;
     height: 30px;
 
     font-size: 16px;
-    text-indent: 70px;
+    text-indent: 90px;
     color: colors("main-font");
 
     border-bottom: 2px solid colors("border");
@@ -196,7 +228,7 @@ $btnCornerRadius: $btnFontSize * 3;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .bui-dialog-close {
-  $close-width: 20px;
+  $close-width: 24px;
 
   display: block;
   width: $close-width;
@@ -211,7 +243,7 @@ $btnCornerRadius: $btnFontSize * 3;
   font-size: 14px;
   line-height: $close-width;
   text-align: center;
-  color: colors("background-light");
+  color: colors("sub-font");
 
   cursor: pointer;
 
@@ -219,23 +251,106 @@ $btnCornerRadius: $btnFontSize * 3;
     content: "\e646";
   }
   &:hover {
-    color: colors("sub-font");
+    color: colors("main-font");
   }
 }
-.bui-dialog {
+.bui-dialog,
+.bui-dialog-alert {
   box-sizing: border-box;
   width: 440px;
-  min-height: 250px;
   padding: 20px;
   margin-left: -220px;
 
   position: fixed;
-  top: 200px;
+  top: 50%;
   left: 50%;
   z-index: 170721;
 
   border-radius: 10px;
   background-color: #fff;
+}
+.bui-dialog-alert {
+  width: 250px;
+  padding: 30px 20px 20px;
+  margin-left: -125px;
+}
+.bui-dialog-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: colors("main-font");
+}
+.bui-dialog-text-alert {
+  text-align: center;
+}
+.bui-dialog-btn {
+  @include displayFlex;
+  @include flexAlignItem(center);
+  @include justifyContent(center);
+
+  margin-top: 20px;
+
+  .bui-btn {
+    margin: 0 10px;
+  }
+}
+.bui-toast {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 30px 0;
+  margin-left: -100px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 170721;
+
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.bui-toast-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #fff;
+  text-align: center;
+}
+.bui-loading {
+
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  line-height: 22px;
+
+  &:before {
+    display: inline-block;
+    margin-right: 10px;
+
+    vertical-align: top;
+    content: "D";
+    font-family: "console-iconfont";
+    font-size: 22px;
+
+    -webkit-animation: rolling 1s infinite linear;
+       -moz-animation: rolling 1s infinite linear;	/* Firefox */
+            animation: rolling 1s infinite linear;
+  }
+}
+
+@-webkit-keyframes rolling {
+  from {
+    transform:rotate(0);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes rolling {
+  from {
+    transform:rotate(0);
+  }
+  to {
+    transform:rotate(360deg);
+  }
 }
 
 //Alert样式
@@ -243,7 +358,6 @@ $btnCornerRadius: $btnFontSize * 3;
   $alert-height: 40px;
 
   box-sizing: border-box;
-  width: 410px;
   height: $alert-height;
   padding: 0 15px;
   margin: 15px auto;
@@ -270,7 +384,7 @@ $btnCornerRadius: $btnFontSize * 3;
     font-size: 14px;
     line-height: $close-width;
     text-align: center;
-    color: colors("background-light");
+    color: colors("sub-font");
 
     cursor: pointer;
 
@@ -278,7 +392,7 @@ $btnCornerRadius: $btnFontSize * 3;
       content: "\e646";
     }
     &:hover {
-      color: colors("sub-font");
+      color: colors("main-font");
     }
   }
 }
@@ -307,12 +421,15 @@ $btnCornerRadius: $btnFontSize * 3;
 .bui-container {
   @extend %clearfix;
   width: 1000px;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 .bui-link {
-  font-size: $globalSmallFontSize;
   text-decoration: underline;
+}
+.bui-link-blue,
+.bui-link-blue:visited {
+  color: colors("blue");
 }
 
 .bui-gray {

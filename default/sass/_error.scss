@@ -1,0 +1,26 @@
+.error-img {
+  display: block;
+  width: 150px;
+  margin: 15px auto;
+}
+.error-text {
+  margin: 15px 0;
+
+  line-height: 1.8;
+  font-size: 24px;
+  text-align: center;
+  color: colors("main-font");
+}
+.error-tips,
+.error-tips:visited {
+  display: block;
+
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+  color: colors("sub-font");
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

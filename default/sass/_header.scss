@@ -41,6 +41,7 @@ header {
 
     box-sizing: border-box;
     padding-bottom: 20px;
+    margin: 0 auto;
   }
   .logo {
     @include flex(1);
